@@ -4,13 +4,13 @@
 // Instructor:    Dr. Haddad
 // Assignment:    1
 
-//This is to test class LinkedList. Create and print out a simple list
+//This is to test class LinkedList_WilliamStone. Create and print out a simple list
 
-public class myTest
+public class myTest_WilliamStone
     {
     public static void main(String[] args)
         {
-        LinkedList myList = new LinkedList(); //create a list object
+        LinkedList_WilliamStone myList = new LinkedList_WilliamStone(); //create a list object
 
         for (int i = 1; i <= 5; i++) //add 5 nodes to the list
             {
@@ -50,21 +50,21 @@ public class myTest
 
         //testing the copyList method
         System.out.println("This is a copy of myList: ");
-        LinkedList myListCopy = myList.copyList();
+        LinkedList_WilliamStone myListCopy = myList.copyList();
         myListCopy.printList();
 
         //testing copy of list with one node
-        LinkedList singleNodeList = new LinkedList();
+        LinkedList_WilliamStone singleNodeList = new LinkedList_WilliamStone();
         singleNodeList.addLastNode(88);
         System.out.println("This is singleNodeList's contents: ");
         singleNodeList.printList();
-        LinkedList copyOfSingleNode = new LinkedList();
+        LinkedList_WilliamStone copyOfSingleNode = new LinkedList_WilliamStone();
         copyOfSingleNode = singleNodeList.copyList();
         System.out.println("A copy of singleNodeList: ");
         copyOfSingleNode.printList();
 
         //testing empty list conditions
-        LinkedList emptyList = new LinkedList();
+        LinkedList_WilliamStone emptyList = new LinkedList_WilliamStone();
         emptyList.addLastNode(88);
         System.out.println("Calling addLastNode on emptyList: ");
         emptyList.printList();

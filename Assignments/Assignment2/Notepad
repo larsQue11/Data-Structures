@@ -1,0 +1,163 @@
+This is a test string
+
+g
+n
+i
+r
+t
+s
+
+t
+s
+e
+t
+
+a
+
+s
+i
+
+s
+i
+h
+T
+
+
+s
+t
+r
+i
+n
+g
+
+abc 123 top
+123 abc
+
+top 321 cba
+
+
+reverse this stack:
+-take original stack
+-pop off elements and push into new stack until a space is found
+
+
+public class ReverseString_WilliamStone extends Stack_WilliamStone
+    {
+    private String str, reverseString;
+    private Node head, tail;
+    private Stack_WilliamStone myStringStack = new Stack_WilliamStone();
+    private Stack_WilliamStone myStringStackReverse = new Stack_WilliamStone();
+
+    public ReverseString_WilliamStone()
+        {
+        head = null;
+        tail = null;
+        reverseString = "";
+        }
+
+    //method to transfer string from user input into a stack
+    public Stack_WilliamStone stringToStack(String str)
+        {
+        if(str.length() == 1)
+            {
+            Node newNode = new Node(str);
+            head = tail = newNode;
+            }
+        else
+            {
+            for(int i = 0; i < str.length(); i++)
+                push(str.charAt(i) + "");
+            }
+        return myStringStack;
+        }
+
+    public String stackToString(Stack_WilliamStone convertStack)
+        {
+        String tempString = convertStack.top();
+        convertStack.pop();
+        System.out.println("test b4 while loop: " + tempString);
+        while(convertStack.isEmpty() == false)
+            {
+            tempString = tempString + convertStack.top();
+            convertStack.pop();
+            System.out.println("testing1: " + tempString);
+            }
+        System.out.println("testing2: " + tempString);
+        return tempString;
+        }
+
+    //method used to mirror a stack of String objects
+    private void mirrorAStack(Stack_WilliamStone myStringStack)
+        {
+        while(myStringStack.isEmpty() == false)
+            {
+            myStringStackReverse.push(myStringStack.top());
+            myStringStack.pop();
+            }
+        }
+
+    //method used to return a stack in reverse order
+    public void reverseAStack(Stack_WilliamStone myStringStack)
+        {
+        Stack_WilliamStone tempStack = new Stack_WilliamStone();
+            do
+            {
+            tempStack.push(myStringStack.top());
+            System.out.println("top: " + tempStack.top());
+            myStringStackReverse.pop();
+            if (Character.isWhitespace(tempStack.top().charAt(0)))
+                {
+                System.out.println("reached if statement");
+                myStringStackReverse.printStack();
+                reverseString = reverseString + stackToString(tempStack);
+                System.out.println("this is the string now: " + reverseString);
+                }
+            } while(myStringStackReverse.isEmpty() == false);
+        System.out.println("This is the inputted string in reverse: " + reverseString);
+        }
+    }
+
+
+private String str;
+    public Stack_WilliamStone checkParStack = new Stack_WilliamStone();
+
+    public void expressionToStack(String str)
+        {
+        int startOfString = 0;
+        String tempString = "";
+        for (int i = 0; i < str.length(); i++)  //iterate through string to create nodes
+            {
+            int numOpenBrace = 0;
+            int numClosedBrace = 0;
+            if ((str.charAt(i) + "").equals("(") || (str.charAt(i) + "").equals(")"))
+                {
+                if ((str.charAt(i) + "").equals("("))
+                    numOpenBrace++;
+                if ((str.charAt(i) + "").equals(")"))
+                    numClosedBrace++;
+                if(numClosedBrace > numOpenBrace)
+                    {
+                    System.out.println("Input too many closed braces.");
+                    break;
+                    }
+                if(checkParStack.isEmpty())
+                    tempString = str.charAt(i) + "";
+                checkParStack.push(tempString);
+                tempString = "";
+                String parentheses = str.charAt(i) + "";
+                checkParStack.push(parentheses);
+                startOfString = i + 1;
+                }
+
+            //if we reach the end of the string, push that substring
+            if ((i + 1) == str.length())
+                {
+                tempString = str.substring(startOfString, i + 1);
+                checkParStack.push(tempString);
+                }
+            else
+                {
+                tempString += "" + str.charAt(i);
+                }
+            }
+        }

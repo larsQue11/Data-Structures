@@ -6,13 +6,13 @@
 
 // This class defines a linked list that stores integer values.
 
-public class LinkedList
+public class LinkedList_WilliamStone
     {
     private Node head, tail;
     private int size;
 
     //constructor method to create a list object with head, tail, and size.
-    public LinkedList()
+    public LinkedList_WilliamStone()
         {
         head = null;  // list head pointer
         tail = null;  // list tail pointer
@@ -139,11 +139,11 @@ public class LinkedList
         }
 
     //method to create a copy of the list
-    public LinkedList copyList()
+    public LinkedList_WilliamStone copyList()
         {
         //This method returns a pointer to the new list, List2
 
-        LinkedList List2 = new LinkedList();  //create new LinkedList object
+        LinkedList_WilliamStone List2 = new LinkedList_WilliamStone();  //create new LinkedList_WilliamStone object
         Node head2, tail2;
         int size2 = 0;
         if (size == 0)
